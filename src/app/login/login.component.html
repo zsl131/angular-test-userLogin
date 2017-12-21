@@ -1,0 +1,26 @@
+<div class="container text-center login-container login-background">
+  <div class="">
+    <div class="login-title text-left">
+      <b class="fa fa-lock"></b>&nbsp;&nbsp;Login
+    </div>
+    <div class="login-body thumbnail">
+      <form [formGroup]="loginModel" (ngSubmit)="onLogin()" novalidate>
+        <div class="form-group" [class.has-error]="loginModel.hasError('minlength', 'username')">
+          <label for="username">用户名：</label>
+          <input type="text" formControlName="username" name="username" id="username" placeholder="请输入用户名" class="form-control">
+          <span class="help-block" [class.hidden]="!loginModel.hasError('minlength', 'username')">
+            用户名长度至少为：3
+          </span>
+        </div>
+        <div class="form-group">
+          <label for="password">密　码：</label>
+          <input type="password" formControlName="password" name="password" id="password" placeholder="请输入密码" class="form-control">
+        </div>
+        <div class="login-oper">
+          <button type="submit" class="btn btn-info btn-block">登&nbsp;&nbsp;陆</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
